@@ -20,8 +20,11 @@ func main() {
 
 	client := pb.NewTraceeServiceClient(conn)
 
+	//in := &pb.DisableEventRequest{
+	//	Name: "net_packet_ipv6",
+	//}
 	in := &pb.DisableEventRequest{
-		Name: "net_packet_ipv6",
+		Name: "security_socket_connect",
 	}
 
 	_, err = client.DisableEvent(context.Background(), in)

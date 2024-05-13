@@ -19,9 +19,17 @@ func main() {
 	}
 
 	client := pb.NewTraceeServiceClient(conn)
+	//in := &pb.EnableEventRequest{
+	//	Name: "execve",
+	//}
 	in := &pb.EnableEventRequest{
-		Name: "net_packet_udp",
+		Name: "read",
 	}
+
+	//in := &pb.EnableEventRequest{
+	//	Name: "net_packet_udp",
+	//}
+
 
 	_, err = client.EnableEvent(context.Background(), in)
 	if err != nil {
